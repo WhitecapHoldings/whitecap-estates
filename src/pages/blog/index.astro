@@ -1,0 +1,177 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Sample blog posts - replace with real Astro content collections as you add posts
+const posts = [
+  {
+    slug: "what-happens-to-a-house-in-probate-in-texas",
+    title: "What Happens to a House in Probate in Texas?",
+    date: "May 2026",
+    excerpt: "If you've inherited a home through a loved one's estate, here's a plain-English breakdown of what the probate process means for that property and what your options are.",
+    category: "Probate Basics"
+  },
+  {
+    slug: "selling-an-inherited-home-as-is-in-dfw",
+    title: "Selling an Inherited Home As-Is in DFW: What to Expect",
+    date: "May 2026",
+    excerpt: "Not every inherited property is in great shape. Here's what it looks like to sell one as-is in the North DFW market, and when it makes sense versus listing traditionally.",
+    category: "Selling"
+  },
+  {
+    slug: "probate-timeline-texas-what-families-need-to-know",
+    title: "The Texas Probate Timeline: What Families Need to Know",
+    date: "April 2026",
+    excerpt: "One of the first things families want to know is how long probate takes. Here's a realistic breakdown of the Texas timeline and what can speed it up or slow it down.",
+    category: "Probate Basics"
+  },
+];
+---
+
+<Layout title="Blog" description="Plain-English articles on probate, inherited property, and the North DFW real estate market from the team at Whitecap Estates.">
+
+  <section class="page-hero navy-bg">
+    <div class="container">
+      <span class="section-label" style="color: var(--accent-light);">Resources</span>
+      <h1>The Whitecap Blog</h1>
+      <p style="color: rgba(255,255,255,0.8); max-width: 520px; margin-top: 12px;">Plain-English articles on probate, inherited property, and the North DFW real estate market.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container blog-layout">
+      <div class="post-list">
+        {posts.map(post => (
+          <article class="post-card">
+            <div class="post-meta">
+              <span class="post-category">{post.category}</span>
+              <span class="post-date">{post.date}</span>
+            </div>
+            <h2><a href={`/blog/${post.slug}`}>{post.title}</a></h2>
+            <p>{post.excerpt}</p>
+            <a href={`/blog/${post.slug}`} class="read-more">Read the article &rarr;</a>
+          </article>
+        ))}
+      </div>
+
+      <aside class="blog-sidebar">
+        <div class="sidebar-card sidebar-cta">
+          <h4>Talk to Kyle</h4>
+          <p>Book a free call. No pitch, just answers.</p>
+          <a href="/contact" class="btn btn-primary" style="width: 100%; text-align: center; margin-top: 12px;">Book a Free Call</a>
+          <div class="sidebar-phones">
+            <a href="tel:4693585646">Kyle: (469) 358-5646</a>
+            <a href="tel:9453499179">Cristian: (945) 349-9179</a>
+          </div>
+        </div>
+        <div class="sidebar-card">
+          <h4>Free Guides</h4>
+          <a href="/probate-resources/how-probate-works-in-texas" class="sidebar-link">How Probate Works in Texas &rarr;</a>
+          <a href="/probate-resources/what-to-do-with-inherited-property" class="sidebar-link">Inherited Property Guide &rarr;</a>
+          <a href="/probate-resources/faq" class="sidebar-link">Probate FAQ &rarr;</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+.page-hero { padding: 72px 24px 64px; }
+.page-hero h1 { color: var(--white); margin-top: 12px; }
+
+.blog-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 56px;
+  align-items: start;
+}
+
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.post-card {
+  padding: 36px 0;
+  border-bottom: 1px solid var(--gray-light);
+}
+.post-card:last-child { border-bottom: none; }
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.post-category {
+  background: var(--accent-light);
+  color: var(--navy-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.post-date {
+  font-size: 0.82rem;
+  color: var(--gray-mid);
+}
+
+.post-card h2 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+}
+
+.post-card h2 a {
+  color: var(--navy);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.post-card h2 a:hover { color: var(--accent); }
+
+.post-card p { margin-bottom: 16px; }
+
+.read-more {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.sidebar-card {
+  background: var(--off-white);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--border-radius);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.sidebar-card h4 { margin-bottom: 14px; font-size: 0.95rem; }
+.sidebar-cta { background: var(--navy); border-color: var(--navy); }
+.sidebar-cta h4 { color: var(--white); }
+.sidebar-cta p { color: rgba(255,255,255,0.75); font-size: 0.9rem; }
+
+.sidebar-phones { display: flex; flex-direction: column; gap: 6px; margin-top: 12px; }
+.sidebar-phones a { color: var(--accent-light); font-size: 0.88rem; text-decoration: none; }
+
+.sidebar-link {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: none;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--gray-light);
+  transition: color 0.15s;
+}
+.sidebar-link:last-child { border-bottom: none; }
+.sidebar-link:hover { color: var(--accent); }
+
+@media (max-width: 900px) {
+  .blog-layout { grid-template-columns: 1fr; }
+  .blog-sidebar { order: -1; }
+}
+</style>

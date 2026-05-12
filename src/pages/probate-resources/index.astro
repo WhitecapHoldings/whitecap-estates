@@ -1,0 +1,113 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Probate Resources" description="Free plain-English guides to help DFW families navigate inherited property and the Texas probate process.">
+
+  <section class="page-hero navy-bg">
+    <div class="container">
+      <span class="section-label" style="color: var(--accent-light);">Free Guides</span>
+      <h1>Probate Resources for DFW Families</h1>
+      <p style="color: rgba(255,255,255,0.8); max-width: 560px; margin-top: 12px;">Most people go through probate once in a lifetime. These guides are here so you know what to expect and can make informed decisions without being pressured into anything.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="resources-list">
+        <a href="/probate-resources/how-probate-works-in-texas" class="resource-row">
+          <div class="resource-num">01</div>
+          <div class="resource-info">
+            <h3>How Probate Works in Texas</h3>
+            <p>A plain-English walkthrough of the Texas probate process. What it is, what it involves, who's in charge, and roughly how long it takes. If you're at the beginning and feeling overwhelmed, start here.</p>
+          </div>
+          <div class="resource-arrow">&rarr;</div>
+        </a>
+        <a href="/probate-resources/what-to-do-with-inherited-property" class="resource-row">
+          <div class="resource-num">02</div>
+          <div class="resource-info">
+            <h3>What to Do With an Inherited Property</h3>
+            <p>You have more options than you might think. Cash sale, traditional listing, keeping it, renting it -- this guide walks through each one honestly so you can make the right call for your family.</p>
+          </div>
+          <div class="resource-arrow">&rarr;</div>
+        </a>
+        <a href="/probate-resources/faq" class="resource-row">
+          <div class="resource-num">03</div>
+          <div class="resource-info">
+            <h3>Probate FAQ</h3>
+            <p>Answers to the questions we hear most from families across North DFW. Straight answers, no jargon.</p>
+          </div>
+          <div class="resource-arrow">&rarr;</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="off-white-bg text-center">
+    <div class="container" style="max-width: 580px;">
+      <span class="section-label">Still Have Questions?</span>
+      <h2>Still Have Questions? Just Ask.</h2>
+      <div class="divider"></div>
+      <p>Every situation is different. If you've read the guides and still have questions about your specific property or family situation, book a free call. No pitch, just answers.</p>
+      <a href="/contact" class="btn btn-primary" style="margin-top: 8px;">Book a Free Call</a>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+.page-hero {
+  padding: 72px 24px 64px;
+}
+.page-hero h1 { color: var(--white); margin-top: 12px; }
+
+.resources-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--gray-light);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.resource-row {
+  display: grid;
+  grid-template-columns: 60px 1fr 40px;
+  gap: 24px;
+  align-items: center;
+  padding: 36px 32px;
+  border-bottom: 1px solid var(--gray-light);
+  text-decoration: none;
+  transition: background 0.15s;
+  background: var(--white);
+}
+
+.resource-row:last-child { border-bottom: none; }
+.resource-row:hover { background: var(--off-white); }
+
+.resource-num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+  opacity: 0.5;
+  line-height: 1;
+}
+
+.resource-info h3 { margin-bottom: 8px; color: var(--navy); }
+.resource-info p { margin: 0; font-size: 0.92rem; }
+
+.resource-arrow {
+  font-size: 1.4rem;
+  color: var(--accent);
+  text-align: right;
+}
+
+@media (max-width: 600px) {
+  .resource-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .resource-arrow { display: none; }
+}
+</style>

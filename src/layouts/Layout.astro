@@ -1,0 +1,358 @@
+---
+import '../styles/global.css';
+
+const { title = 'Whitecap Estates', description = 'Local DFW probate property experts. We help families navigate inherited property with clarity and no pressure.' } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <title>{title} | Whitecap Estates</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="/" class="logo">
+        <span class="logo-name">WHITECAP ESTATES</span>
+        <span class="logo-tagline">Probate & Property Solutions</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="siteNav">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <div class="nav-dropdown">
+          <a href="/probate-resources" class="nav-dropdown-trigger">Probate Resources</a>
+          <div class="dropdown-menu">
+            <a href="/probate-resources/how-probate-works-in-texas">How Probate Works in Texas</a>
+            <a href="/probate-resources/what-to-do-with-inherited-property">Inherited Property Guide</a>
+            <a href="/probate-resources/faq">FAQ</a>
+          </div>
+        </div>
+        <a href="/blog">Blog</a>
+        <a href="/contact" class="btn btn-primary nav-cta">Book a Call</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-name">WHITECAP ESTATES</span>
+        <p>Local DFW probate and property experts. Born and raised in the Metroplex. Licensed Realtors and investors serving Plano, Frisco, Allen, McKinney, Richardson, and surrounding North DFW communities.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Resources</h4>
+        <a href="/probate-resources/how-probate-works-in-texas">How Probate Works in Texas</a>
+        <a href="/probate-resources/what-to-do-with-inherited-property">Inherited Property Guide</a>
+        <a href="/probate-resources/faq">FAQ</a>
+        <a href="/blog">Blog</a>
+      </div>
+      <div class="footer-contact">
+        <h4>Get in Touch</h4>
+        <p>Kyle Cheek<br /><a href="tel:4693585646">(469) 358-5646</a></p>
+        <p>Cristian Velez<br /><a href="tel:9453499179">(945) 349-9179</a></p>
+        <a href="/contact" class="btn btn-outline" style="margin-top: 16px;">Book a Call</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; {new Date().getFullYear()} Whitecap Estates. All rights reserved. | Plano, TX 75074</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.getElementById('navToggle');
+    const nav = document.getElementById('siteNav');
+    toggle?.addEventListener('click', () => {
+      nav?.classList.toggle('open');
+      toggle?.classList.toggle('active');
+    });
+
+    // Active nav link
+    const links = document.querySelectorAll('.site-nav a');
+    links.forEach(link => {
+      if (link.getAttribute('href') === window.location.pathname) {
+        link.classList.add('active');
+      }
+    });
+  </script>
+
+</body>
+</html>
+
+<style>
+/* HEADER */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-light);
+  box-shadow: 0 1px 8px rgba(26,59,92,0.06);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.logo-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--navy);
+}
+
+.logo-tagline {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--gray-mid);
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.site-nav a {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--navy-dark);
+  transition: color 0.15s;
+  text-decoration: none;
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  color: var(--accent);
+}
+
+.site-nav .nav-cta {
+  color: var(--navy-dark);
+  padding: 10px 22px;
+  font-size: 0.9rem;
+}
+
+/* Dropdown */
+.nav-dropdown { position: relative; }
+
+.nav-dropdown-trigger { cursor: pointer; }
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 24px rgba(26,59,92,0.12);
+  min-width: 220px;
+  padding: 8px 0;
+  z-index: 200;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 0.88rem;
+  white-space: nowrap;
+  color: var(--navy-dark);
+}
+
+.dropdown-menu a:hover {
+  background: var(--off-white);
+  color: var(--accent);
+}
+
+.nav-dropdown:hover .dropdown-menu { display: block; }
+
+/* Mobile toggle */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--navy);
+  transition: all 0.2s;
+}
+
+/* FOOTER */
+.site-footer {
+  background: var(--navy-dark);
+  color: var(--white);
+  padding-top: 64px;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+}
+
+.footer-brand .logo-name {
+  color: var(--white);
+  display: block;
+  margin-bottom: 16px;
+}
+
+.footer-brand p {
+  color: var(--gray-mid);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.footer-links, .footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links h4, .footer-contact h4 {
+  color: var(--accent);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.footer-links a {
+  color: var(--gray-mid);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footer-links a:hover { color: var(--white); }
+
+.footer-contact p {
+  color: var(--gray-mid);
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.footer-contact a {
+  color: var(--accent-light);
+}
+
+.footer-contact .btn {
+  align-self: flex-start;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 20px 0;
+}
+
+.footer-bottom p {
+  color: var(--gray-mid);
+  font-size: 0.82rem;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-toggle { display: flex; }
+
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    border-bottom: 1px solid var(--gray-light);
+    box-shadow: 0 8px 24px rgba(26,59,92,0.1);
+    padding: 16px 24px 24px;
+  }
+
+  .site-nav.open { display: flex; }
+
+  .site-nav a {
+    padding: 12px 0;
+    width: 100%;
+    border-bottom: 1px solid var(--gray-light);
+    font-size: 1rem;
+  }
+
+  .site-nav .nav-cta {
+    margin-top: 16px;
+    width: 100%;
+    text-align: center;
+    border-bottom: none;
+  }
+
+  .nav-dropdown .dropdown-menu {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    padding: 0 0 0 16px;
+    display: block;
+  }
+
+  .dropdown-menu a {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--gray-light);
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+</style>

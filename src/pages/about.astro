@@ -1,0 +1,178 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About" description="Kyle Cheek and Cristian Velez are DFW-born Realtors and investors helping North DFW families navigate inherited property through Whitecap Estates.">
+
+  <section class="page-hero navy-bg">
+    <div class="container">
+      <span class="section-label" style="color: var(--accent-light);">Who We Are</span>
+      <h1>Local Realtors. Local Investors. Born and Raised in DFW.</h1>
+    </div>
+  </section>
+
+  <section>
+    <div class="container about-grid">
+      <div class="about-main">
+        <span class="section-label">Our Story</span>
+        <h2>We Started Whitecap Estates Because We Saw How Families Were Being Treated</h2>
+        <div class="divider"></div>
+        <p>When a family goes through probate, they're dealing with grief, legal complexity, and a property they didn't plan for. The last thing they need is a flood of form letters from investors they've never met, offering lowball numbers and pressuring them to sign fast.</p>
+        <p>We're a small local team based in Plano. Our founders grew up in Rockwall and McKinney. We're both licensed Realtors and real estate investors who have spent our careers in the DFW market. We know these neighborhoods because we've lived in them.</p>
+        <p>Whitecap Estates was built around a simple idea: come in as a resource first and a buyer second. We'll tell you honestly what your options are, what the property is worth, and what the probate process looks like in Texas. If a cash offer makes sense for your family, we'll make a fair one. If listing on the market is a better move, we'll help you do that too. The goal is the right outcome for you, not a fast close for us.</p>
+        <p>We operate exclusively in a 30-minute radius around Plano, covering Frisco, Allen, McKinney, Richardson, Carrollton, and the surrounding communities. This is our backyard. We're not running a national operation from a call center. We're a local team that takes pride in doing this the right way.</p>
+      </div>
+      <div class="about-sidebar">
+        <div class="team-card">
+          <div class="team-photo-placeholder">KC</div>
+          <h3>Kyle Cheek</h3>
+          <p class="team-role">Realtor and Investor</p>
+          <p>Born and raised in Rockwall, TX. Licensed Realtor with 10+ years in DFW real estate. Probate specialist focused on North DFW.</p>
+          <a href="tel:4693585646" class="team-phone">(469) 358-5646</a>
+        </div>
+        <div class="team-card">
+          <div class="team-photo-placeholder">CV</div>
+          <h3>Cristian Velez</h3>
+          <p class="team-role">Realtor and Investor</p>
+          <p>Born and raised in McKinney, TX. Licensed Realtor and real estate investor. Partners with Kyle on acquisitions and deal analysis across North DFW.</p>
+          <a href="tel:9453499179" class="team-phone">(945) 349-9179</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="off-white-bg">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">Our Approach</span>
+        <h2>Resource First. Buyer Second.</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="values-grid">
+        <div class="value-item">
+          <div class="value-icon">&#9673;</div>
+          <h4>No Pressure</h4>
+          <p>You move on your timeline, not ours. Probate takes time and so does good decision-making. We're here when you're ready.</p>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">&#9673;</div>
+          <h4>Plain English</h4>
+          <p>No legal jargon, no confusing paperwork. I'll explain every step of the process in terms that actually make sense.</p>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">&#9673;</div>
+          <h4>Real Options</h4>
+          <p>Cash offer or market listing, we do both. You get to choose what's right for your situation, not what's right for our bottom line.</p>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">&#9673;</div>
+          <h4>Local Knowledge</h4>
+          <p>We know North DFW neighborhoods because we grew up here and have been investing here for years. No guesswork on valuations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="text-center">
+    <div class="container" style="max-width: 600px;">
+      <h2>Ready to Talk?</h2>
+      <p>Book a free call and tell us what you're dealing with. No pitch, no pressure. Just an honest conversation.</p>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 24px;">
+        <a href="/contact" class="btn btn-primary">Book a Free Call</a>
+        <a href="/probate-resources" class="btn btn-outline-navy">Browse Resources</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+.page-hero {
+  padding: 72px 24px 64px;
+}
+
+.page-hero h1 {
+  color: var(--white);
+  max-width: 680px;
+  margin-top: 12px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.about-main h2 { margin-top: 8px; }
+
+.team-card {
+  background: var(--off-white);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--border-radius);
+  padding: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.team-photo-placeholder {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.team-card h3 { margin-bottom: 4px; }
+
+.team-role {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.team-phone {
+  display: inline-block;
+  margin-top: 8px;
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 0.95rem;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.value-item { text-align: center; }
+
+.value-icon {
+  font-size: 1.4rem;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.value-item h4 { margin-bottom: 10px; }
+.value-item p { font-size: 0.9rem; }
+
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .values-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .values-grid { grid-template-columns: 1fr; }
+}
+</style>

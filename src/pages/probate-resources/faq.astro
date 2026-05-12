@@ -1,0 +1,210 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  {
+    q: "Do I have to go through probate in Texas?",
+    a: "If the deceased person owned real estate in their name alone, probate is typically required to transfer ownership. Some assets like life insurance, retirement accounts with named beneficiaries, and property held in a trust can pass directly without probate. A probate attorney can tell you exactly what applies to your situation."
+  },
+  {
+    q: "How long does probate take in Texas?",
+    a: "It varies. A straightforward estate with a clear will and no disputes can sometimes move through in a few months. More complex situations with multiple heirs, contested wills, or significant debts can take a year or more. Texas is generally considered more efficient than most states when it comes to probate timelines."
+  },
+  {
+    q: "Can we sell the property before probate is complete?",
+    a: "This is a question for your probate attorney, as the answer depends on your specific estate and where you are in the process. What we can tell you is that buyers like us are experienced working with probate timelines and can structure a transaction around what the court allows."
+  },
+  {
+    q: "What if there are multiple heirs who don't agree?",
+    a: "This is one of the most common situations we see. When heirs disagree on what to do with a property, it can slow everything down. In some cases, the court can step in to resolve disputes. In others, having an outside party explain the options clearly can help families get on the same page. We're happy to speak with families together or separately to help everyone understand the situation."
+  },
+  {
+    q: "Does the property have to be cleaned out before we sell?",
+    a: "Not if you sell to us. We buy properties as-is, contents and all. You take what you want and leave the rest. We handle the cleanup. If you list on the MLS, it typically helps to have the property in good condition, but we can talk through what makes sense based on what you're dealing with."
+  },
+  {
+    q: "How do you determine your cash offer?",
+    a: "We look at the property's current condition, comparable sales in the neighborhood, and what it would cost us to repair and resell. We aim to make offers that are fair given those factors. We're not lowballing. We're also not going to match a retail listing price, because we're taking on the risk and the work. We'll walk you through the numbers transparently so you understand how we got there."
+  },
+  {
+    q: "Do we have to accept your offer?",
+    a: "Never. Our job is to give you a fair offer and let you decide. If the offer doesn't work for your family, you owe us nothing. We'd rather you make the right decision than feel pressured into the wrong one."
+  },
+  {
+    q: "What if the property has a mortgage or liens?",
+    a: "That's common and it doesn't disqualify a sale. In most cases, the outstanding mortgage or liens are paid off at closing from the sale proceeds. We can walk you through how that typically works once we know more about the property."
+  },
+  {
+    q: "Are you licensed Realtors?",
+    a: "Yes. Our team includes licensed Texas Realtors and real estate investors. That means we can help you sell to us directly or list your property on the MLS if that's the better option for your family. We'll tell you which one we think makes more sense."
+  },
+  {
+    q: "Do you charge a fee for the initial call?",
+    a: "No. The first call is completely free. We talk, you tell us what's going on, and we give you honest guidance. If we end up working together, great. If not, you still leave the call knowing more than you did before."
+  },
+];
+---
+
+<Layout title="Probate FAQ" description="Answers to common questions about probate and inherited property in North DFW, from local licensed Realtors at Whitecap Estates.">
+
+  <section class="page-hero navy-bg">
+    <div class="container">
+      <a href="/probate-resources" class="back-link">&larr; Back to Resources</a>
+      <span class="section-label" style="color: var(--accent-light); margin-top: 16px;">FAQ</span>
+      <h1>Probate Questions, Answered Plainly</h1>
+      <p style="color: rgba(255,255,255,0.8); max-width: 540px; margin-top: 12px;">The questions we hear most from families navigating inherited property in North DFW.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container faq-layout">
+      <div class="faq-list">
+        {faqs.map((faq, i) => (
+          <div class="faq-item" id={`faq-${i}`}>
+            <button class="faq-question" aria-expanded="false">
+              <span>{faq.q}</span>
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>{faq.a}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <aside class="faq-sidebar">
+        <div class="sidebar-card sidebar-cta">
+          <h4>Still Have Questions?</h4>
+          <p>Book a free call. I'll answer whatever you've got.</p>
+          <a href="/contact" class="btn btn-primary" style="width: 100%; text-align: center; margin-top: 12px;">Book a Free Call</a>
+          <div class="sidebar-phones">
+            <a href="tel:4693585646">Kyle: (469) 358-5646</a>
+            <a href="tel:9453499179">Cristian: (945) 349-9179</a>
+          </div>
+        </div>
+        <div class="sidebar-card">
+          <h4>More Resources</h4>
+          <a href="/probate-resources/how-probate-works-in-texas" class="sidebar-link">How Probate Works in Texas &rarr;</a>
+          <a href="/probate-resources/what-to-do-with-inherited-property" class="sidebar-link">Inherited Property Guide &rarr;</a>
+          <a href="/blog" class="sidebar-link">Blog &rarr;</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      document.querySelectorAll('.faq-item').forEach(el => {
+        el.classList.remove('open');
+        el.querySelector('.faq-question')?.setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item?.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
+
+<style>
+.page-hero { padding: 72px 24px 64px; }
+.page-hero h1 { color: var(--white); margin-top: 12px; }
+.back-link { display: inline-block; color: rgba(255,255,255,0.6); font-size: 0.88rem; text-decoration: none; }
+.back-link:hover { color: var(--white); }
+
+.faq-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 56px;
+  align-items: start;
+}
+
+.faq-list {
+  border: 1px solid var(--gray-light);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--gray-light);
+}
+.faq-item:last-child { border-bottom: none; }
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 28px;
+  background: var(--white);
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--navy);
+  transition: background 0.15s;
+}
+
+.faq-question:hover { background: var(--off-white); }
+
+.faq-icon {
+  flex-shrink: 0;
+  color: var(--accent);
+  transition: transform 0.2s;
+}
+
+.faq-item.open .faq-icon { transform: rotate(180deg); }
+
+.faq-answer {
+  display: none;
+  padding: 0 28px 24px;
+  background: var(--white);
+}
+
+.faq-item.open .faq-answer { display: block; }
+.faq-answer p { margin: 0; font-size: 0.95rem; }
+
+.sidebar-card {
+  background: var(--off-white);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--border-radius);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.sidebar-card h4 { margin-bottom: 14px; font-size: 0.95rem; }
+.sidebar-cta { background: var(--navy); border-color: var(--navy); }
+.sidebar-cta h4 { color: var(--white); }
+.sidebar-cta p { color: rgba(255,255,255,0.75); font-size: 0.9rem; }
+
+.sidebar-phones { display: flex; flex-direction: column; gap: 6px; margin-top: 12px; }
+.sidebar-phones a { color: var(--accent-light); font-size: 0.88rem; text-decoration: none; }
+
+.sidebar-link {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: none;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--gray-light);
+  transition: color 0.15s;
+}
+.sidebar-link:last-child { border-bottom: none; }
+.sidebar-link:hover { color: var(--accent); }
+
+@media (max-width: 900px) {
+  .faq-layout { grid-template-columns: 1fr; }
+  .faq-sidebar { order: -1; }
+}
+</style>

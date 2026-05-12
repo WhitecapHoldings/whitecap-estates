@@ -1,0 +1,198 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Book a Call" description="Book a free call with Kyle Cheek at Whitecap Estates. No pressure, no pitch. Just an honest conversation about your inherited property.">
+
+  <section class="page-hero navy-bg">
+    <div class="container">
+      <span class="section-label" style="color: var(--accent-light);">Get in Touch</span>
+      <h1>Book a Free Call</h1>
+      <p style="color: rgba(255,255,255,0.8); max-width: 520px; margin-top: 12px;">No pitch. No pressure. Just tell us what you're dealing with and we'll give you an honest answer on what your options are.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container contact-grid">
+      <div class="contact-main">
+        <span class="section-label">Schedule Online</span>
+        <h2>Pick a Time That Works for You</h2>
+        <div class="divider"></div>
+        <p>Use the calendar below to book a free 20-minute call. If you'd rather just pick up the phone, our numbers are to the right.</p>
+
+        <!-- CALENDLY EMBED PLACEHOLDER -->
+        <div class="calendly-placeholder">
+          <div class="calendly-inner">
+            <p style="font-size: 1.1rem; font-weight: 600; color: var(--navy); margin-bottom: 8px;">Calendly Booking Coming Soon</p>
+            <p style="font-size: 0.92rem;">In the meantime, call or text us directly:</p>
+            <a href="tel:4693585646" class="btn btn-primary" style="margin-top: 16px;">Call Kyle: (469) 358-5646</a>
+          </div>
+        </div>
+        <!-- END CALENDLY PLACEHOLDER -->
+        <!-- 
+          REPLACE THE PLACEHOLDER ABOVE WITH:
+          <div class="calendly-inline-widget" data-url="https://calendly.com/YOUR-LINK" style="min-width:320px;height:700px;"></div>
+          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        -->
+      </div>
+
+      <div class="contact-sidebar">
+        <div class="contact-card">
+          <h3>Prefer to Call?</h3>
+          <p>Call or text anytime. If we miss you, we'll call back the same day.</p>
+          <div class="contact-person">
+            <strong>Kyle Cheek</strong>
+            <a href="tel:4693585646">(469) 358-5646</a>
+          </div>
+          <div class="contact-person">
+            <strong>Cristian Velez</strong>
+            <a href="tel:9453499179">(945) 349-9179</a>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <h3>What to Expect</h3>
+          <ul class="expect-list">
+            <li>About 20 minutes</li>
+            <li>Tell us what's going on with the property</li>
+            <li>We'll walk through your options honestly</li>
+            <li>No obligation to do anything</li>
+            <li>Questions welcome, I'll answer all of them</li>
+          </ul>
+        </div>
+
+        <div class="contact-card service-area">
+          <h3>Our Service Area</h3>
+          <p>We focus on a 30-minute radius around Plano, TX including:</p>
+          <div class="city-tags">
+            <span>Plano</span><span>Frisco</span><span>Allen</span>
+            <span>McKinney</span><span>Richardson</span><span>Carrollton</span>
+            <span>Garland</span><span>Murphy</span><span>Wylie</span>
+            <span>Prosper</span><span>Celina</span><span>Sachse</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+.page-hero {
+  padding: 72px 24px 64px;
+}
+
+.page-hero h1 { color: var(--white); margin-top: 12px; }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.contact-main h2 { margin-top: 8px; }
+
+.calendly-placeholder {
+  background: var(--off-white);
+  border: 2px dashed var(--gray-light);
+  border-radius: var(--border-radius);
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+  text-align: center;
+  padding: 40px;
+}
+
+.contact-card {
+  background: var(--off-white);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--border-radius);
+  padding: 28px;
+  margin-bottom: 20px;
+}
+
+.contact-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+.contact-person {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.contact-person:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.contact-person strong {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--gray-text);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+.contact-person a {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.contact-person a:hover { color: var(--accent); }
+
+.expect-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.expect-list li {
+  padding-left: 20px;
+  position: relative;
+  font-size: 0.92rem;
+  color: var(--gray-text);
+}
+
+.expect-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.city-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.city-tags span {
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.82rem;
+  color: var(--navy);
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+</style>
