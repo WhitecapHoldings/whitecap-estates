@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Book a Call" description="Book a free call with Kyle Cheek at Whitecap Estates. No pressure, no pitch. Just an honest conversation about your inherited property.">
+<Layout title="Book a Call" description="Book a free call with the Whitecap Estates team. No pressure, no pitch. Just an honest conversation about your inherited property options in North DFW.">
 
   <section class="page-hero navy-bg">
     <div class="container">
@@ -15,25 +15,34 @@ import Layout from '../layouts/Layout.astro';
   <section>
     <div class="container contact-grid">
       <div class="contact-main">
-        <span class="section-label">Schedule Online</span>
-        <h2>Pick a Time That Works for You</h2>
+        <span class="section-label">Get in Touch</span>
+        <h2>The Best First Step is a Phone Call</h2>
         <div class="divider"></div>
-        <p>Use the calendar below to book a free 20-minute call. If you'd rather just pick up the phone, our numbers are to the right.</p>
+        <p>Call or text us directly. We're real people based in Plano and we pick up. If we miss you, we'll get back to you the same day.</p>
 
-        <!-- CALENDLY EMBED PLACEHOLDER -->
-        <div class="calendly-placeholder">
-          <div class="calendly-inner">
-            <p style="font-size: 1.1rem; font-weight: 600; color: var(--navy); margin-bottom: 8px;">Calendly Booking Coming Soon</p>
-            <p style="font-size: 0.92rem;">In the meantime, call or text us directly:</p>
-            <a href="tel:4693585646" class="btn btn-primary" style="margin-top: 16px;">Call Kyle: (469) 358-5646</a>
-          </div>
+        <div class="call-cards">
+          <a href="tel:4693585646" class="call-card">
+            <div class="call-avatar">KC</div>
+            <div class="call-info">
+              <strong>Kyle Cheek</strong>
+              <span>Born and raised in Rockwall. 10+ years in DFW real estate.</span>
+              <div class="call-number">(469) 358-5646</div>
+            </div>
+          </a>
+          <a href="tel:9453499179" class="call-card">
+            <div class="call-avatar">CV</div>
+            <div class="call-info">
+              <strong>Cristian Velez</strong>
+              <span>Born and raised in McKinney. Licensed Realtor and investor.</span>
+              <div class="call-number">(945) 349-9179</div>
+            </div>
+          </a>
         </div>
-        <!-- END CALENDLY PLACEHOLDER -->
-        <!-- 
-          REPLACE THE PLACEHOLDER ABOVE WITH:
-          <div class="calendly-inline-widget" data-url="https://calendly.com/YOUR-LINK" style="min-width:320px;height:700px;"></div>
-          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-        -->
+
+        <div class="contact-note">
+          <p>Prefer to schedule online?</p>
+          <a href="https://calendar.app.google/9SxML1xwikVAWDfg8" target="_blank" rel="noopener noreferrer" class="btn btn-outline-navy" style="margin-top: 8px; display: inline-block;">Book a Time Online</a>
+        </div>
       </div>
 
       <div class="contact-sidebar">
@@ -57,13 +66,13 @@ import Layout from '../layouts/Layout.astro';
             <li>Tell us what's going on with the property</li>
             <li>We'll walk through your options honestly</li>
             <li>No obligation to do anything</li>
-            <li>Questions welcome, I'll answer all of them</li>
+            <li>Questions welcome, we'll answer all of them</li>
           </ul>
         </div>
 
         <div class="contact-card service-area">
           <h3>Our Service Area</h3>
-          <p>We focus on a 30-minute radius around Plano, TX including:</p>
+          <p>We focus on North DFW including:</p>
           <div class="city-tags">
             <span>Plano</span><span>Frisco</span><span>Allen</span>
             <span>McKinney</span><span>Richardson</span><span>Carrollton</span>
@@ -93,17 +102,82 @@ import Layout from '../layouts/Layout.astro';
 
 .contact-main h2 { margin-top: 8px; }
 
-.calendly-placeholder {
+.call-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.call-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
   background: var(--off-white);
-  border: 2px dashed var(--gray-light);
+  border: 1px solid var(--gray-light);
   border-radius: var(--border-radius);
-  min-height: 400px;
+  padding: 24px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.call-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 16px rgba(26,59,92,0.08);
+  transform: translateY(-1px);
+}
+
+.call-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+}
+
+.call-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.call-info strong {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.call-info span {
+  font-size: 0.84rem;
+  color: var(--gray-text);
+}
+
+.call-number {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-top: 4px;
+}
+
+.contact-note {
   margin-top: 24px;
-  text-align: center;
-  padding: 40px;
+  padding: 16px 20px;
+  background: var(--off-white);
+  border-radius: var(--border-radius);
+  border-left: 3px solid var(--gray-light);
+}
+
+.contact-note p {
+  font-size: 0.9rem;
+  color: var(--gray-text);
+  margin: 0;
 }
 
 .contact-card {
