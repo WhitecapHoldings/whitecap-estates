@@ -1,7 +1,54 @@
 ---
 import '../styles/global.css';
 
-const { title = 'Whitecap Estates', description = 'Local DFW probate property experts. We help families navigate inherited property with clarity and no pressure.' } = Astro.props;
+const { 
+  title = 'Whitecap Estates', 
+  description = 'Local DFW probate property experts. We help families navigate inherited property with clarity and no pressure.',
+  image = '/og-image.jpg',
+  type = 'website'
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, 'https://whitecapestates.com');
+const fullTitle = title === 'Whitecap Estates' ? title : `${title} | Whitecap Estates`;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "RealEstateAgent",
+      "@id": "https://whitecapestates.com/#business",
+      "name": "Whitecap Estates",
+      "url": "https://whitecapestates.com",
+      "telephone": "+14693585646",
+      "description": "DFW probate real estate specialists. Licensed Realtors and investors helping families navigate inherited property in the Dallas-Fort Worth Metroplex.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Plano",
+        "addressRegion": "TX",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 33.0198,
+          "longitude": -96.6989
+        },
+        "geoRadius": "80000"
+      },
+      "sameAs": []
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://whitecapestates.com/#website",
+      "url": "https://whitecapestates.com",
+      "name": "Whitecap Estates",
+      "publisher": {
+        "@id": "https://whitecapestates.com/#business"
+      }
+    }
+  ]
+};
 ---
 
 <!DOCTYPE html>
@@ -10,10 +57,29 @@ const { title = 'Whitecap Estates', description = 'Local DFW probate property ex
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content={description} />
-  <title>{title} | Whitecap Estates</title>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>{fullTitle}</title>
+  <link rel="canonical" href={canonicalURL} />
+  <link rel="icon" type="image/svg+xml" href="/logo-mark.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content={type} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={`https://whitecapestates.com${image}`} />
+  <meta property="og:site_name" content="Whitecap Estates" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={fullTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={`https://whitecapestates.com${image}`} />
+
+  <!-- Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 </head>
 <body>
 
@@ -21,8 +87,7 @@ const { title = 'Whitecap Estates', description = 'Local DFW probate property ex
   <header class="site-header">
     <div class="container nav-inner">
       <a href="/" class="logo">
-        <span class="logo-name">WHITECAP ESTATES</span>
-        <span class="logo-tagline">Probate & Property Solutions</span>
+        <img src="/logo.svg" alt="Whitecap Estates" class="logo-img" />
       </a>
       <button class="nav-toggle" aria-label="Toggle menu" id="navToggle">
         <span></span><span></span><span></span>
@@ -53,8 +118,8 @@ const { title = 'Whitecap Estates', description = 'Local DFW probate property ex
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <span class="logo-name">WHITECAP ESTATES</span>
-        <p>Local DFW probate and property experts. Born and raised in the Metroplex. Licensed Realtors and investors serving Plano, Frisco, Allen, McKinney, Richardson, Carrollton, and communities across North DFW.</p>
+        <img src="/logo.svg" alt="Whitecap Estates" class="footer-logo-img" />
+        <p>Licensed Realtors and real estate investors serving buyers, sellers, and families across the DFW Metroplex. Born and raised in North Texas. Complex transactions are our specialty.</p>
       </div>
       <div class="footer-links">
         <h4>Resources</h4>
@@ -125,21 +190,19 @@ const { title = 'Whitecap Estates', description = 'Local DFW probate property ex
   text-decoration: none;
 }
 
-.logo-name {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: var(--navy);
+.logo-img {
+  height: 44px;
+  width: auto;
+  display: block;
 }
 
-.logo-tagline {
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
-  color: var(--gray-mid);
-  font-weight: 500;
-  text-transform: uppercase;
-  margin-top: 2px;
+.footer-logo-img {
+  height: 52px;
+  width: auto;
+  display: block;
+  margin-bottom: 16px;
+  /* Invert dark logo to show white on dark footer background */
+  filter: brightness(0) invert(1);
 }
 
 .site-nav {
