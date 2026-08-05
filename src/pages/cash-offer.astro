@@ -1,0 +1,467 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Get a Cash Offer" description="Get a straightforward cash offer on your DFW property. No repairs, no showings, no commissions. Tell us about your property and we'll get back to you quickly.">
+
+  <!-- HERO -->
+  <section class="page-hero navy-bg">
+    <div class="container">
+      <span class="section-label" style="color: var(--accent-light);">No Obligation</span>
+      <h1>Get a Cash Offer on Your Property</h1>
+      <p style="color: rgba(255,255,255,0.8); max-width: 560px; margin-top: 12px;">Tell us about your property and we'll get back to you with a straightforward offer. No repairs required, no showings, no commissions. Just an honest number.</p>
+    </div>
+  </section>
+
+  <!-- FORM SECTION -->
+  <section>
+    <div class="container offer-layout">
+      <div class="offer-main">
+        <span class="section-label">Property Details</span>
+        <h2>Tell Us About Your Property</h2>
+        <div class="divider"></div>
+        <p>Fill out the form below and we'll review your information and follow up within one business day. Everything you share stays between us.</p>
+
+        <form
+          name="cash-offer"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          class="offer-form"
+          action="/thank-you"
+        >
+          <input type="hidden" name="form-name" value="cash-offer" />
+          <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name <span class="required">*</span></label>
+              <input type="text" id="name" name="name" required placeholder="Your full name" />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number <span class="required">*</span></label>
+              <input type="tel" id="phone" name="phone" required placeholder="(214) 555-0000" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required placeholder="you@email.com" />
+          </div>
+
+          <div class="form-group">
+            <label for="address">Property Address <span class="required">*</span></label>
+            <input type="text" id="address" name="address" required placeholder="123 Main St, Plano, TX 75074" />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="condition">Property Condition <span class="required">*</span></label>
+              <select id="condition" name="condition" required>
+                <option value="" disabled selected>Select condition</option>
+                <option value="move-in-ready">Move-in ready</option>
+                <option value="needs-some-work">Needs some work</option>
+                <option value="major-repairs">Major repairs needed</option>
+                <option value="not-sure">Not sure</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="relationship">Your Relationship to the Property <span class="required">*</span></label>
+              <select id="relationship" name="relationship" required>
+                <option value="" disabled selected>Select one</option>
+                <option value="owner">Owner</option>
+                <option value="executor">Executor / Administrator</option>
+                <option value="heir">Heir / Beneficiary</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="timeline">What's Your Timeline?</label>
+            <select id="timeline" name="timeline">
+              <option value="" disabled selected>Select a timeline</option>
+              <option value="asap">As soon as possible</option>
+              <option value="1-3-months">1 to 3 months</option>
+              <option value="3-6-months">3 to 6 months</option>
+              <option value="6-plus-months">6+ months</option>
+              <option value="not-sure">Not sure yet</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="notes">Anything Else We Should Know?</label>
+            <textarea id="notes" name="notes" rows="4" placeholder="Tell us about the situation, any complications, or questions you have..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-pref">Best Way to Reach You</label>
+            <select id="contact-pref" name="contact-pref">
+              <option value="call">Phone call</option>
+              <option value="text">Text message</option>
+              <option value="email">Email</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary submit-btn">Submit Property Details</button>
+
+          <p class="form-note">We typically respond within one business day. Your information is never shared or sold.</p>
+        </form>
+      </div>
+
+      <aside class="offer-sidebar">
+        <div class="sidebar-card">
+          <h4>What to Expect</h4>
+          <ul class="expect-list">
+            <li>We review your submission</li>
+            <li>We follow up within one business day</li>
+            <li>We may schedule a quick walkthrough</li>
+            <li>We present a fair cash offer</li>
+            <li>You decide -- no obligation ever</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card highlight-card">
+          <h4>Why a Cash Offer?</h4>
+          <ul class="benefit-list">
+            <li><span class="check">✓</span> No repairs or cleaning required</li>
+            <li><span class="check">✓</span> No showings or open houses</li>
+            <li><span class="check">✓</span> No financing contingencies</li>
+            <li><span class="check">✓</span> Close on your timeline</li>
+            <li><span class="check">✓</span> No commissions or fees</li>
+            <li><span class="check">✓</span> Works with probate timelines</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <h4>Prefer to Call?</h4>
+          <p>Reach us directly and we'll talk through your situation.</p>
+          <div class="contact-person">
+            <strong>Kyle Cheek</strong>
+            <a href="tel:4693585646">(469) 358-5646</a>
+          </div>
+          <div class="contact-person">
+            <strong>Cristian Velez</strong>
+            <a href="tel:9453499179">(945) 349-9179</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- SITUATIONS -->
+  <section class="off-white-bg">
+    <div class="container text-center">
+      <span class="section-label">Common Situations</span>
+      <h2>A Cash Offer Works Well When...</h2>
+      <div class="divider"></div>
+      <div class="situations-grid">
+        <div class="situation-card">
+          <h4>The Property Needs Work</h4>
+          <p>Repairs, cleanouts, deferred maintenance -- none of that matters with a cash offer. We buy as-is.</p>
+        </div>
+        <div class="situation-card">
+          <h4>You're Dealing With Probate</h4>
+          <p>We understand probate timelines and can structure a transaction around what the court and estate require.</p>
+        </div>
+        <div class="situation-card">
+          <h4>Speed Matters</h4>
+          <p>No lender timelines, no appraisal delays. Cash closes fast when you need it to.</p>
+        </div>
+        <div class="situation-card">
+          <h4>Multiple Heirs Are Involved</h4>
+          <p>A clean cash transaction is often the path of least resistance when several people need to agree on a sale.</p>
+        </div>
+        <div class="situation-card">
+          <h4>The Owner Is Out of State</h4>
+          <p>Managing a property from another state is a burden. We make it easy to close without being here.</p>
+        </div>
+        <div class="situation-card">
+          <h4>There Are Liens or Title Issues</h4>
+          <p>We've worked through complicated title situations before. It doesn't automatically disqualify a sale.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LISTING OPTION -->
+  <section>
+    <div class="container listing-alt">
+      <div>
+        <span class="section-label">Not Sure a Cash Offer Is Right?</span>
+        <h2>We Can Also List Your Property on the Market</h2>
+        <div class="divider"></div>
+        <p>A cash offer isn't always the best move. If your property is in good shape and you have time, listing on the MLS will typically net more. As licensed Realtors, we can do both and show you the numbers side by side so you can make the right call.</p>
+        <p>There's no pressure either way. Our job is to give you the honest answer, not the one that benefits us most.</p>
+        <a href="/realty" class="btn btn-outline-navy" style="margin-top: 8px;">Learn About Our Realty Services</a>
+      </div>
+      <div class="listing-stats">
+        <div class="stat-card-alt">
+          <strong>Cash Offer</strong>
+          <ul>
+            <li>Faster close</li>
+            <li>As-is condition</li>
+            <li>No commissions</li>
+            <li>Certainty</li>
+          </ul>
+        </div>
+        <div class="stat-card-alt">
+          <strong>Market Listing</strong>
+          <ul>
+            <li>Higher sale price</li>
+            <li>Competitive offers</li>
+            <li>Full MLS exposure</li>
+            <li>We handle everything</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+.page-hero { padding: 72px 24px 64px; }
+.page-hero h1 { color: var(--white); margin-top: 12px; }
+
+.offer-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.offer-main h2 { margin-top: 8px; }
+
+/* FORM */
+.offer-form {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hidden { display: none; }
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--navy-dark);
+}
+
+.required { color: var(--accent); }
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 12px 16px;
+  border: 1px solid var(--gray-light);
+  border-radius: var(--border-radius);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--navy-dark);
+  background: var(--white);
+  transition: border-color 0.15s;
+  width: 100%;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--navy);
+}
+
+.form-group textarea { resize: vertical; }
+
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  font-size: 1rem;
+  margin-top: 8px;
+}
+
+.form-note {
+  font-size: 0.8rem;
+  color: var(--gray-mid);
+  text-align: center;
+  margin: 0;
+}
+
+/* SIDEBAR */
+.sidebar-card {
+  background: var(--off-white);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--border-radius);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.sidebar-card h4 { margin-bottom: 14px; font-size: 0.95rem; }
+
+.highlight-card {
+  background: var(--navy);
+  border-color: var(--navy);
+}
+
+.highlight-card h4 { color: var(--white); }
+
+.expect-list, .benefit-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.expect-list li {
+  font-size: 0.9rem;
+  color: var(--gray-text);
+  padding-left: 20px;
+  position: relative;
+}
+
+.expect-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 0.85rem;
+}
+
+.benefit-list li {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.8);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.check {
+  color: var(--accent);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.contact-person {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.contact-person:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.contact-person strong {
+  font-size: 0.82rem;
+  color: var(--gray-text);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 2px;
+}
+
+.contact-person a {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+/* SITUATIONS */
+.situations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+  text-align: left;
+}
+
+.situation-card {
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-top: 3px solid var(--accent);
+  border-radius: var(--border-radius);
+  padding: 24px;
+}
+
+.situation-card h4 { margin-bottom: 10px; }
+.situation-card p { font-size: 0.9rem; margin: 0; }
+
+/* LISTING ALT */
+.listing-alt {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.listing-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.stat-card-alt {
+  background: var(--off-white);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--border-radius);
+  padding: 24px;
+}
+
+.stat-card-alt strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--navy);
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.stat-card-alt ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stat-card-alt li {
+  font-size: 0.88rem;
+  color: var(--gray-text);
+  padding-left: 14px;
+  position: relative;
+}
+
+.stat-card-alt li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 900px) {
+  .offer-layout, .listing-alt { grid-template-columns: 1fr; gap: 40px; }
+  .situations-grid { grid-template-columns: repeat(2, 1fr); }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .situations-grid, .listing-stats { grid-template-columns: 1fr; }
+}
+</style>
