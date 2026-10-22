@@ -36,7 +36,7 @@ const schema = {
         },
         "geoRadius": "80000"
       },
-      "sameAs": []
+      "sameAs": ["https://www.instagram.com/wchinvest/"]
     },
     {
       "@type": "WebSite",
@@ -140,9 +140,12 @@ const schema = {
       </div>
       <div class="footer-contact">
         <h4>Get in Touch</h4>
-        <p>Kyle Cheek<br /><a href="tel:4693585646">(469) 358-5646</a></p>
-        <p>Cristian Velez<br /><a href="tel:9453499179">(945) 349-9179</a></p>
+        <p>Kyle Cheek<br /><a href="tel:4693585646">(469) 358-5646</a><br /><a href="mailto:kyle@whitecap-holdings.com">kyle@whitecap-holdings.com</a></p>
+        <p>Cristian Velez<br /><a href="tel:9453499179">(945) 349-9179</a><br /><a href="mailto:cris@whitecap-holdings.com">cris@whitecap-holdings.com</a></p>
         <a href="https://calendar.app.google/9SxML1xwikVAWDfg8" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="margin-top: 16px;">Book a Call</a>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/wchinvest/" target="_blank" rel="noopener noreferrer">Instagram @wchinvest</a>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -356,6 +359,14 @@ const schema = {
 
 .footer-contact .btn {
   align-self: flex-start;
+}
+
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 8px;
+  font-size: 0.9rem;
 }
 
 .footer-bottom {
