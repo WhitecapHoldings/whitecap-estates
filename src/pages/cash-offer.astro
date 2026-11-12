@@ -2,14 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Get a Cash Offer" description="Get a straightforward cash offer on your DFW property. No repairs, no showings, no commissions. Tell us about your property and we'll get back to you quickly.">
+<Layout title="Get a Cash Offer or Home Value Estimate" description="Get a cash offer or a home value estimate on your DFW property. Tell us about your home and we'll follow up by email or on a call, whichever you prefer.">
 
   <!-- HERO -->
   <section class="page-hero navy-bg">
     <div class="container">
       <span class="section-label" style="color: var(--accent-light);">No Obligation</span>
-      <h1>Get a Cash Offer on Your Property</h1>
-      <p style="color: rgba(255,255,255,0.8); max-width: 560px; margin-top: 12px;">Tell us about your property and we'll get back to you with a straightforward offer. No repairs required, no showings, no commissions. Just an honest number.</p>
+      <h1>Get a Cash Offer or Home Value Estimate</h1>
+      <p style="color: rgba(255,255,255,0.8); max-width: 560px; margin-top: 12px;">Tell us about your property and we'll follow up with a straightforward cash offer, a home value estimate for a market listing, or both side by side. No pressure, just an honest number.</p>
     </div>
   </section>
 
@@ -20,7 +20,7 @@ import Layout from '../layouts/Layout.astro';
         <span class="section-label">Property Details</span>
         <h2>Tell Us About Your Property</h2>
         <div class="divider"></div>
-        <p>Fill out the form below and we'll review your information and follow up within one business day. Everything you share stays between us.</p>
+        <p>Fill out the form below and we'll follow up within one business day. Prefer to talk first? You can book a call or email us any time. Everything you share stays between us.</p>
 
         <form
           name="cash-offer"
@@ -32,6 +32,17 @@ import Layout from '../layouts/Layout.astro';
         >
           <input type="hidden" name="form-name" value="cash-offer" />
           <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+          <div class="form-group">
+            <label for="looking-for">What Are You Looking For? <span class="required">*</span></label>
+            <select id="looking-for" name="looking-for" required>
+              <option value="" disabled selected>Select one</option>
+              <option value="cash-offer">Cash offer</option>
+              <option value="value-estimate">Home value estimate (for listing on the market)</option>
+              <option value="compare-both">Compare both</option>
+              <option value="not-sure">Not sure yet</option>
+            </select>
+          </div>
 
           <div class="form-row">
             <div class="form-group">
@@ -95,11 +106,11 @@ import Layout from '../layouts/Layout.astro';
           </div>
 
           <div class="form-group">
-            <label for="contact-pref">Best Way to Reach You</label>
+            <label for="contact-pref">How Would You Like to Follow Up?</label>
             <select id="contact-pref" name="contact-pref">
-              <option value="call">Phone call</option>
-              <option value="text">Text message</option>
-              <option value="email">Email</option>
+              <option value="email">Email me</option>
+              <option value="call-text">Call or text me</option>
+              <option value="book-call">I'll book a call myself</option>
             </select>
           </div>
 
@@ -107,6 +118,16 @@ import Layout from '../layouts/Layout.astro';
 
           <p class="form-note">We typically respond within one business day. Your information is never shared or sold.</p>
         </form>
+
+        <div class="alt-contact">
+          <h4>Rather Skip the Form?</h4>
+          <p>Book a call at a time that works for you, or email us directly.</p>
+          <a href="https://calendar.app.google/9SxML1xwikVAWDfg8" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Book a Free Call</a>
+          <div class="alt-emails">
+            <a href="mailto:cris@whitecap-holdings.com">cris@whitecap-holdings.com</a>
+            <a href="mailto:kyle@whitecap-holdings.com">kyle@whitecap-holdings.com</a>
+          </div>
+        </div>
       </div>
 
       <aside class="offer-sidebar">
@@ -116,33 +137,42 @@ import Layout from '../layouts/Layout.astro';
             <li>We review your submission</li>
             <li>We follow up within one business day</li>
             <li>We may schedule a quick walkthrough</li>
-            <li>We present a fair cash offer</li>
+            <li>We present your options with real numbers</li>
             <li>You decide -- no obligation ever</li>
           </ul>
         </div>
 
         <div class="sidebar-card highlight-card">
-          <h4>Why a Cash Offer?</h4>
+          <h4>Two Ways to Sell</h4>
+          <p><strong>Cash offer</strong></p>
           <ul class="benefit-list">
             <li><span class="check">✓</span> No repairs or cleaning required</li>
             <li><span class="check">✓</span> No showings or open houses</li>
             <li><span class="check">✓</span> No financing contingencies</li>
             <li><span class="check">✓</span> Close on your timeline</li>
-            <li><span class="check">✓</span> No commissions or fees</li>
+          </ul>
+          <p style="margin-top: 14px;"><strong>Market listing</strong></p>
+          <ul class="benefit-list">
+            <li><span class="check">✓</span> Full MLS exposure</li>
+            <li><span class="check">✓</span> Local pricing guidance</li>
+            <li><span class="check">✓</span> Same team start to finish</li>
             <li><span class="check">✓</span> Works with probate timelines</li>
           </ul>
         </div>
 
         <div class="sidebar-card">
-          <h4>Prefer to Call?</h4>
+          <h4>Prefer to Talk or Email?</h4>
           <p>Reach us directly and we'll talk through your situation.</p>
+          <a href="https://calendar.app.google/9SxML1xwikVAWDfg8" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; text-align: center; margin-bottom: 12px;">Book a Free Call</a>
           <div class="contact-person">
             <strong>Kyle Cheek</strong>
             <a href="tel:4693585646">(469) 358-5646</a>
+            <a href="mailto:kyle@whitecap-holdings.com">kyle@whitecap-holdings.com</a>
           </div>
           <div class="contact-person">
             <strong>Cristian Velez</strong>
             <a href="tel:9453499179">(945) 349-9179</a>
+            <a href="mailto:cris@whitecap-holdings.com">cris@whitecap-holdings.com</a>
           </div>
         </div>
       </aside>
@@ -464,4 +494,10 @@ import Layout from '../layouts/Layout.astro';
 @media (max-width: 600px) {
   .situations-grid, .listing-stats { grid-template-columns: 1fr; }
 }
+.alt-contact { margin-top: 32px; padding: 24px 28px; background: var(--off-white); border: 1px solid var(--gray-light); border-radius: var(--border-radius); }
+.alt-contact h4 { margin-bottom: 6px; }
+.alt-contact p { margin-bottom: 14px; font-size: 0.93rem; }
+.alt-emails { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 14px; }
+.alt-emails a { font-weight: 600; color: var(--navy); font-size: 0.92rem; text-decoration: none; overflow-wrap: anywhere; }
+.alt-emails a:hover { color: var(--accent); }
 </style>
